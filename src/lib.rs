@@ -17,7 +17,6 @@ type Result<T = ()> = core::result::Result<T, ConfError>;
 /// Name used by [`Conf::default`]. Env vars should be prefixed `VCFG_`.
 pub const DEFAULT_NAME: &'static str = "vcfg";
 
-
 /// Generic config value trait. Implement this for any custom types you want to support. This
 /// library includes several implementations for commmon types.
 pub trait ConfValue:
@@ -263,8 +262,18 @@ mod test {
     use super::*;
 
     fn clean_env() {
-        let vars = vec!["test", "testy", "greeting", "name", "max_byte", "a_number", "another_number"];
-        vars.iter().for_each(|n| std::env::remove_var(format!("{}_{}", DEFAULT_NAME, n.to_ascii_uppercase())));
+        let vars = vec![
+            "test",
+            "testy",
+            "greeting",
+            "name",
+            "max_byte",
+            "a_number",
+            "another_number",
+        ];
+        vars.iter().for_each(|n| {
+            std::env::remove_var(format!("{}_{}", DEFAULT_NAME, n.to_ascii_uppercase()))
+        });
     }
 
     #[test]
