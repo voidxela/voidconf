@@ -28,7 +28,7 @@ jobs:
             os: ubuntu-latest
           - target: aarch64-unknown-linux-gnu
             os: ubuntu-latest
-    name: Release build - ${{ matrix.target }}
+    name: Build - ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout

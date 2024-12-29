@@ -15,7 +15,7 @@ use std::str::FromStr;
 type Result<T = ()> = core::result::Result<T, ConfError>;
 
 /// Name used by [`Conf::default`]. Env vars should be prefixed `VCFG_`.
-pub const DEFAULT_NAME: &'static str = "vcfg";
+pub const DEFAULT_NAME: &str = "vcfg";
 
 /// Generic config value trait. Implement this for any custom types you want to support. This
 /// library includes several implementations for commmon types.
